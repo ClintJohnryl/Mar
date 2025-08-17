@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mile Feuille - Menu</title>
+  <style>
+    :root{
+      --bg-blur: 2px;
+      --glass: rgba(255,255,255,.06);
+      --glass-strong: rgba(255,255,255,.12);
+      --text-main: #f5f7fb;
+      --text-dim: #cfd6e3;
+      --accent: #ffb703;
+      --accent-2: #5a3a2e;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      color:var(--text-main);
+      background:#000;
+    }
+
+    .hero{position:relative; min-height:100svh; width:100%; overflow:hidden}
+    .hero::before{
+      content:""; position:absolute; inset:0; background:url('18.gif') center/cover no-repeat fixed; filter:brightness(.72) saturate(1.05) blur(var(--bg-blur));
+    }
+    .hero::after{content:""; position:absolute; inset:0; pointer-events:none;
+      background: radial-gradient(1200px 600px at 85% 20%, rgba(255,183,3,.35), transparent 60%),
+                  linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.65));
+    }
+
+    .nav{position:fixed; inset: 18px 18px auto 18px; z-index:10; display:flex; align-items:center; gap:18px}
+    .brand{display:flex; align-items:center; gap:12px; padding:10px 14px; border-radius:999px; background:var(--glass); backdrop-filter: blur(8px); border:1px solid rgba(255,255,255,.12)}
+    .brand-logo{width:28px; height:28px; border-radius:7px; background:linear-gradient(135deg, var(--accent), #ffd88f); box-shadow:0 0 0 1px rgba(0,0,0,.25) inset}
+    .brand h1{font-size:16px; letter-spacing:.18em; margin:0; text-transform:uppercase}
+    .menu{margin-left:auto; display:flex; gap:10px}
+    .menu a{padding:10px 14px; text-decoration:none; color:var(--text-dim); border-radius:999px; background:var(--glass); border:1px solid rgba(255,255,255,.08)}
+    .menu a:hover{color:var(--text-main); background:var(--glass-strong)}
+
+    .menu-section{position:relative; z-index:2; padding:100px 20px 40px; max-width:1000px; margin:auto; display:grid; gap:24px; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));}
+    .card{padding:18px; border-radius:18px; background:var(--glass); backdrop-filter: blur(10px) saturate(120%); border:1px solid rgba(255,255,255,.12); box-shadow:0 10px 30px rgba(0,0,0,.25); text-align:center; animation: fadeUp 0.8s ease-out forwards;}
+    .card img{width:100%; height:200px; object-fit:cover; border-radius:12px; margin-bottom:12px; border:1px solid rgba(255,255,255,.1)}
+    .card h2{margin:0 0 8px; font-size:1.4rem; color:var(--text-main)}
+    .card p{margin:0; color:var(--text-dim); font-size:.95rem;}
+    .price{margin-top:10px; font-size:1.15rem; font-weight:700; color:var(--accent)}
+
+    /* Business Plan Section */
+    .business-plan {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 30px;
+      border-radius: 18px;
+      background: var(--glass);
+      backdrop-filter: blur(12px) saturate(120%);
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1.2s ease-out forwards;
+      animation-delay: 0.6s;
+    }
+    .business-plan h2 {
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+      color: var(--accent);
+      text-align: center;
+      animation: glowPulse 2.5s infinite ease-in-out;
+    }
+    .business-plan p {
+      color: var(--text-dim);
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+    .business-plan strong {
+      color: var(--text-main);
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes glowPulse {
+      0%, 100% { text-shadow: 0 0 5px var(--accent), 0 0 15px var(--accent);}
+      50% { text-shadow: 0 0 15px var(--accent), 0 0 30px var(--accent);}
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <nav class="nav">
+      <div class="brand">
+        <div class="brand-logo" aria-hidden="true"></div>
+        <h1>MILE FEUILLE</h1>
+      </div>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+      </div>
+    </nav>
+
+    <section class="menu-section">
+      <div class="card">
+        <img src="butterscotch.jpg" alt="Butterscotch">
+        <h2>Butterscotch</h2>
+        <p>A chewy, buttery delight with hints of caramel and brown sugar that melts in your mouth.</p>
+        <div class="price">₱15</div>
+      </div>
+      <div class="card">
+        <img src="brownies.jpg" alt="Brownies">
+        <h2>Brownies</h2>
+        <p>Rich and fudgy chocolate goodness, baked to perfection for that ultimate cocoa indulgence.</p>
+        <div class="price">₱15</div>
+      </div>
+    </section>
+
+    <section class="business-plan">
+      <h2>Business Plan</h2>
+      <p><strong>Concept:</strong> Mile Feuille offers artisanal baked goods with a focus on premium taste and presentation, catering to both casual snackers and gourmet dessert lovers.</p>
+      <p><strong>Target Market:</strong> Urban professionals, students, and families seeking high-quality pastries at affordable prices.</p>
+      <p><strong>Unique Selling Point:</strong> Handcrafted recipes using premium ingredients, paired with a modern, visually appealing brand experience.</p>
+      <p><strong>Pricing Strategy:</strong> Competitive pricing with a ₱15 entry price point to encourage repeat customers while maintaining high margins through efficient production.</p>
+      <p><strong>Marketing Approach:</strong> Social media campaigns, influencer partnerships, and pop-up tasting booths to build brand recognition and customer loyalty.</p>
+      <p><strong>Growth Plan:</strong> Expand from direct sales to corporate catering, online delivery platforms, and franchise opportunities within 3 years.</p>
+    </section>
+  </div>
+</body>
+</html>
